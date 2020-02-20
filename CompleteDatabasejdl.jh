@@ -150,7 +150,8 @@ relationship OneToOne{
 relationship ManyToMany{
  Student to Guardian,
  Company to Contact,
- Person to Contact
+ Person to Contact,
+ Student to ClassGroup
 }
 relationship OneToMany{
  Subject to ClassGroup,
