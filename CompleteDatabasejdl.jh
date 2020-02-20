@@ -145,7 +145,6 @@ relationship OneToOne{
  Employee to Person,
  Teacher to Employee,
  Grade to ClassGroup,
- Assignment to ClassGroup
 }
 
 relationship ManyToMany{
@@ -158,6 +157,7 @@ relationship OneToMany{
  Teacher to ClassGroup,
  Student to Attendance,
  ClassGroup to Attendance,
+ ClassGroup to Assignment,
  Student to Grade,
  Student to Assignment
 }
