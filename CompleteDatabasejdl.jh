@@ -19,6 +19,7 @@ enum BlodTypes{
 APLUS,AMINUS,BPLUS,BMINUS,ABPLUS,ABMINUS,OPLUS,OMINUS
 }
 
+
 @dto(mapstruct)
 @service(serviceClass)
 entity Person{
@@ -54,11 +55,15 @@ webPage String,
 description String
 }
 
+enum EducationLevel{
+MIDDLE,HIGH,COLLEGE,MASTERS,PHD
+}
+
 @dto(mapstruct)
 @service(serviceClass)
 entity Guardian{
 creationDate ZonedDateTime,
-educationLevel String,
+educationLevel EducationLevel,
 occupation String,
 workAdress String
 }
@@ -76,7 +81,7 @@ controlNumber Long
 @service(serviceClass)
 entity Employee{
 creationDate ZonedDateTime,
-educationLevel String,
+educationLevel EducationLevel,
 department String,
 controlNumber Long,
 employmentType String,
@@ -116,6 +121,7 @@ size Integer
 @service(serviceClass)
 entity Attendance{
 creationDate ZonedDateTime,
+onTime Boolean
 }
 
 @dto(mapstruct)
@@ -135,7 +141,30 @@ description String,
 dueDate ZonedDateTime,
 done Boolean,
 grade Float,
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity Attachments{
+creationDate ZonedDateTime,
 attachment Blob
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity Exculpatory{
+creationDate ZonedDateTime,
+leaveDateAndHour ZonedDateTime,
+fullDay Boolean,
+description String
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity GroupNotices{
+creationDate ZonedDateTime,
+title String,
+description String,
 }
 
 relationship OneToOne{
@@ -146,7 +175,7 @@ relationship OneToOne{
  Teacher to Employee,
  Grade to ClassGroup,
 }
-
+ 
 relationship ManyToMany{
  Student to Guardian,
  Company to Contact,
@@ -160,7 +189,11 @@ relationship OneToMany{
  ClassGroup to Attendance,
  ClassGroup to Assignment,
  Student to Grade,
- Student to Assignment
+ Student to Assignment,
+ Assignment to Attachments,
+ Guardian to Exculpatory,
+ Student to Exculpatory,
+ ClassGroup to GroupNotices
 }
 
 
