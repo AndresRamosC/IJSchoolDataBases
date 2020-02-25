@@ -6,7 +6,8 @@ entity UserExtend{
     userName String,
     password String,
     enabled Boolean,
-    type UserType
+    type UserType,
+    keycloakUserId String
 }
 enum UserType{
 GUARDIAN,EMPLOYEE,STUDENT
@@ -173,7 +174,7 @@ relationship OneToOne{
  Student to Person,
  Employee to Person,
  Teacher to Employee,
- Grade to ClassGroup,
+ Grade to ClassGroup
 }
  
 relationship ManyToMany{
