@@ -112,10 +112,11 @@ iconCode String
 entity ClassGroup{
 creationDate ZonedDateTime,
 groupCode String,
-startHour ZonedDateTime,
-endHour ZonedDateTime,
+startHour String,
+endHour String,
 classRoom String,
-size Integer
+size Integer,
+weekDays Integer
 }
 
 @dto(mapstruct)
