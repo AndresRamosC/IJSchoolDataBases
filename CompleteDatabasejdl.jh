@@ -170,6 +170,7 @@ description String,
 }
 
 relationship OneToOne{
+ UserExtend{user(login)} to User,
  Person to UserExtend,
  Guardian to Person,
  Student to Person,
@@ -182,7 +183,7 @@ relationship ManyToMany{
  Student to Guardian,
  Company to Contact,
  Person to Contact,
- Student to ClassGroup
+ ClassGroup to Student
 }
 relationship OneToMany{
  Subject to ClassGroup,
