@@ -170,7 +170,6 @@ description String,
 }
 
 relationship OneToOne{
- UserExtend{user(login)} to User,
  Person to UserExtend,
  Guardian to Person,
  Student to Person,
