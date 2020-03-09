@@ -149,7 +149,16 @@ grade Float,
 @service(serviceClass)
 entity Attachments{
 creationDate ZonedDateTime,
-attachment Blob
+title String,
+size Long,
+mimeType String
+}
+
+@dto(mapstruct)
+@service(serviceClass)
+entity AttachmentsContent{
+creationDate ZonedDateTime,
+data Blob
 }
 
 @dto(mapstruct)
@@ -175,7 +184,8 @@ relationship OneToOne{
  Student to Person,
  Employee to Person,
  Teacher to Employee,
- Grade to ClassGroup
+ Grade to ClassGroup,
+ Attachments to AttachmentsContent
 }
  
 relationship ManyToMany{
