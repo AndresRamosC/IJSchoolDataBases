@@ -1,18 +1,3 @@
-@dto(mapstruct)
-@service(serviceClass)
-@paginate(infinite-scroll)
-entity UserExtend{
-	creationDate ZonedDateTime,
-    userName String,
-    password String,
-    enabled Boolean,
-    type UserType,
-    keycloakUserId String
-}
-enum UserType{
-GUARDIAN,EMPLOYEE,STUDENT
-}
-
 enum Genders{
 MALE,FEMALE
 }
@@ -31,7 +16,8 @@ gender Genders,
 bloodGroup BlodTypes,
 dateOfBirth LocalDate,
 photograph ImageBlob,
-assigned Boolean
+enabled Boolean,
+keycloakUserId String
 }
 
 @dto(mapstruct)
@@ -179,7 +165,6 @@ description String,
 }
 
 relationship OneToOne{
- Person to UserExtend,
  Guardian to Person,
  Student to Person,
  Employee to Person,
