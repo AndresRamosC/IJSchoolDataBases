@@ -126,9 +126,14 @@ entity Assignment{
 creationDate ZonedDateTime,
 title String,
 description String,
-dueDate ZonedDateTime,
+dueDate ZonedDateTime
+}
+@dto(mapstruct)
+@service(serviceClass)
+entity AssignmentAssigned{
+creationDate ZonedDateTime,
 done Boolean,
-grade Float,
+grade Float
 }
 
 @dto(mapstruct)
@@ -186,7 +191,8 @@ relationship OneToMany{
  ClassGroup to Attendance,
  ClassGroup to Assignment,
  Student to Grade,
- Student to Assignment,
+ Student to AssignmentAssigned,
+ Assignment to AssignmentAssigned,
  Assignment to Attachments,
  Guardian to Exculpatory,
  Student to Exculpatory,
